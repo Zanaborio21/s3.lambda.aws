@@ -6,10 +6,10 @@ import mercadopago
 
 def lambda_handler(event, context):
     sdk = mercadopago.SDK(os.environ["ACCESS_TOKEN"])
-    bodyGet=json.loads(event["body"])
+    body=json.loads(event["body"])
     
     
-    payment_response = sdk.payment().create(bodyGet)
+    payment_response = sdk.payment().create(body)
     payment = payment_response["response"]
     json_payment=json.dumps(payment_response['response'])
     
